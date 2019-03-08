@@ -32,6 +32,11 @@ def calculate(myarg):
                 arg1 = stack.pop()
                 result = function(arg1)
                 stack.append(result)
+            elif((token == '/' or token == '//') and stack[-1] == 0):
+                stack.pop()
+                stack.pop()
+                print("You're dividing by zero, fool")
+                continue
             else: 
                 function = operators[token]
                 arg2 = stack.pop()
