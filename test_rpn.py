@@ -33,8 +33,8 @@ class TestBasics(unittest.TestCase):
         result = rpn.calculate("0 3 &")
         self.assertEqual(0, result)
     def test_bitwiseOr(self):
-        result = rpn.calculate("0, 3 |")
+        result = rpn.calculate("0 3 |")
         self.assertEqual(3, result)
     def test_bitwiseNot(self): 
         result = rpn.calculate("0 ~")
-        self.assertEqual(4294967295, result)
+        self.assertEqual(-1, result)

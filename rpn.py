@@ -2,7 +2,7 @@
 
 
 import operator
-
+import math
 
 operators = {
     '+': operator.add,
@@ -10,6 +10,12 @@ operators = {
     '*': operator.mul,
     '/': operator.truediv,
     '^': operator.pow,
+    '%': operator.mod,
+    '//': operator.floordiv,
+    '&': operator.and_,
+    '|': operator.or_, 
+    '~': operator.invert,
+    '!': math.factorial,
 }
 
 def calculate(myarg):
@@ -21,6 +27,11 @@ def calculate(myarg):
         except ValueError:
             if (token == 'c'): 
                 stack.append(stack[-1])
+            elif(token == '~' or token == '!'):
+                function = operators[token]
+                arg1 = stack.pop()
+                result = function(arg1)
+                stack.append(result)
             else: 
                 function = operators[token]
                 arg2 = stack.pop()
