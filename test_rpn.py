@@ -38,3 +38,6 @@ class TestBasics(unittest.TestCase):
     def test_bitwiseNot(self): 
         result = rpn.calculate("0 ~")
         self.assertEqual(-1, result)
+    def test_divZero(self):
+        result = rpn.calculate("4 0 / 4 1 /")
+        self.assertEqual(4, result)
