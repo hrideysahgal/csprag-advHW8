@@ -20,3 +20,21 @@ class TestBasics(unittest.TestCase):
     def test_copy(self):
         result = rpn.calculate("4 c +")
         self.assertEqual(8, result)
+    def test_mod(self):
+        result = rpn.calculate("4 3 %")
+        self.assertEqual(1, result)
+    def test_intdiv(self):
+        result = rpn.calculate("4 3 //")
+        self.assertEqual(1, result)
+    def test_factorial(self):
+        result = rpn.calculate("4 !")
+        self.assertEqual(24, result)
+    def test_bitwiseAnd(self):
+        result = rpn.calculate("0 3 &")
+        self.assertEqual(0, result)
+    def test_bitwiseOr(self):
+        result = rpn.calculate("0, 3 |")
+        self.assertEqual(3, result)
+    def test_bitwiseNot(self): 
+        result = rpn.calculate("0 ~")
+        self.assertEqual(4294967295, result)
