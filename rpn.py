@@ -19,11 +19,14 @@ def calculate(myarg):
             token = int(token)
             stack.append(token)
         except ValueError:
-            function = operators[token]
-            arg2 = stack.pop()
-            arg1 = stack.pop()
-            result = function(arg1, arg2)
-            stack.append(result)
+            if (token == 'c'): 
+                stack.append(stack[-1])
+            else: 
+                function = operators[token]
+                arg2 = stack.pop()
+                arg1 = stack.pop()
+                result = function(arg1, arg2)
+                stack.append(result)
         print(stack)
     if len(stack) != 1:
         raise TypeError("Too many parameters")
